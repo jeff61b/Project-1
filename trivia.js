@@ -1,6 +1,7 @@
 const triviaQuestions = [
   {
     questionId: 1,
+    category: "TV Sitcoms",
     question: "What was Kramer's first name on the TV show Seinfeld?",
     answer1: "Newman",
     answer2: "Kevin",
@@ -10,6 +11,7 @@ const triviaQuestions = [
   },
   {
     questionId: 2,
+    category: "TV Sitcoms",
     question:
       "On the TV show Friends, what is the name of the song that Phoebe often sang at the Coffee House?",
     answer1: "Alley Cat",
@@ -21,12 +23,99 @@ const triviaQuestions = [
 
   {
     questionId: 3,
+    category: "Literature",
     question:
       "In a famous 19th century novel, who or what did the captain and crew of the ship Pequod hunt for?",
     answer1: "Frankenstein",
     answer2: "The white whale, Moby Dick",
     answer3: "A Great White shark",
     answer4: "Captain Nemo",
+    correctAnswer: 2,
+  },
+  {
+    questionId: 4,
+    category: "literature",
+    question: "Who was the group of people who followed Robin Hood?",
+    answer1: "The Mighty Men",
+    answer2: "The Happy Hooligans",
+    answer3: "The Goofy Guys",
+    answer4: "The Merry Men",
+    correctAnswer: 4,
+  },
+  {
+    questionId: 5,
+    category: "Astronomy",
+    question: "What is the average distance between the Earth and Sun?",
+    answer1: "93 million miles",
+    answer2: "238,000 miles",
+    answer3: "241 million miles",
+    answer4: "1 light year",
+    correctAnswer: 1,
+  },
+  {
+    questionId: 6,
+    category: "Astronomy",
+    question:
+      "In the northern hemisphere, the best known constellation in the sky is probably Ursa Major. By what name do we commonly call this constellation?",
+    answer1: "The Big Dipper",
+    answer2: "The Northern Lights",
+    answer3: "The Milky Way",
+    answer4: "Andromeda",
+    correctAnswer: 1,
+  },
+  {
+    questionId: 7,
+    category: "Sports",
+    question:
+      "What baseball player still holds the record for most at bats, most hits and most games played in a career?",
+    answer1: "Lou Gehrig",
+    answer2: "Cal Ripken Jr.",
+    answer3: "Pete Rose",
+    answer4: "Steve Garvey",
     correctAnswer: 3,
+  },
+  {
+    questionId: 8,
+    category: "Basic Civics",
+    question:
+      "Article 1 of the US Constitution defines the powers of what branch of the US government?",
+    answer1: "The Legislative branch",
+    answer2: "The Executive branch",
+    answer3: "The Militiary branch",
+    answer4: "The Judicial branch",
+    correctAnswer: 1,
+  },
+  {
+    questionId: 9,
+    category: "Movies",
+    question:
+      "Name the movie with this famous quote: 'Open the pod bay doors HAL'.",
+    answer1: "Titanic",
+    answer2: "Star Wars",
+    answer3: "2001: A Space Odyssey",
+    answer4: "Gone With The Wind",
+    correctAnswer: 3,
+  },
+  {
+    questionId: 10,
+    category: "Science",
+    question:
+      "Geological Eras are measured in millions of years. In what geological era did the dinosaurs live?",
+    answer1: "Paleozoic Era",
+    answer2: "Mesozoic Era",
+    answer3: "Cenozoic Era",
+    answer4: "The Bronze Age",
+    correctAnswer: 2,
+  },
+  {
+    questionId: 11,
+    category: "Geography",
+    question:
+      "Ten of the 12 countries in South America border an ocean. Which of these countries is completely landlocked?",
+    answer1: "Ecuador",
+    answer2: "Columbia",
+    answer3: "Guyana",
+    answer4: "Bolivia",
+    correctAnswer: 4,
   },
 ];
