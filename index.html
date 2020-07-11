@@ -8,20 +8,25 @@
   </head>
   <body>
     <header>
-      <button id="Begin">Click Here to Begin</button>
-      <h1>Trivia Game</h1>
-      <p id="score-txt"></p>
+      <div>
+        <button id="begin">Click Here to Begin</button>
+        <h1>Trivia Game</h1>
+        <p id="score-txt"></p>
+      </div>
     </header>
     <section class="questions-answers">
-      <p name="question-txt" id="question-txt">Question</p>
+      <p name="question-txt" id="question-txt"></p>
+      <p id="instruction"></p>
       <div id="answers">
         <button id="answer1"></button>
         <button id="answer2"></button>
         <button id="answer3"></button>
         <button id="answer4"></button>
       </div>
-      <p id="message-box"></p>
-      <button id="next-question"></button>
+      <div id="msgDivision">
+        <p id="message-box">Sample Message</p>
+      </div>
+      <button id="next-question">Next Question</button>
     </section>
     <section class="game-over">
       <p id="game-over-msg">Game Over</p>
@@ -29,6 +34,7 @@
       <button id="another-round">Play Another Round of Ten Questions</button>
       <button id="new-game">New Game - Start Over</button>
     </section>
+    <script src="trivia.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
