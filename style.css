@@ -2,6 +2,11 @@ header {
   text-align: center;
   font-size: xx-large;
 }
+.headingDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
 
 #begin {
   text-align: center;
@@ -13,10 +18,10 @@ header {
   right: 400px;*/
   flex-direction: column;
   width: 190px;
-  height: 70px;
+  height: 80px;
   background-color: yellow;
   font-weight: 600;
-  font-size: large;
+  font-size: x-large;
   justify-content: center;
 }
 
@@ -31,12 +36,6 @@ header {
   text-align: center;
   font-size: larger;
 }
-#msgDivision {
-  text-align: center;
-  align-self: center;
-  /*background-color: lightblue;*/
-  height: 50px;
-}
 
 #answers {
   text-align: center;
@@ -50,6 +49,7 @@ header {
   height: 100px;
   font-size: x-large;
   background-color: rgb(230, 245, 250);
+  border-radius: 15px;
 }
 
 #answer2 {
@@ -57,6 +57,7 @@ header {
   height: 100px;
   font-size: x-large;
   background-color: rgb(230, 245, 250);
+  border-radius: 15px;
 }
 
 #answer3 {
@@ -64,6 +65,7 @@ header {
   height: 100px;
   font-size: x-large;
   background-color: rgb(230, 245, 250);
+  border-radius: 15px;
 }
 
 #answer4 {
@@ -71,30 +73,44 @@ header {
   height: 100px;
   font-size: x-large;
   background-color: rgb(230, 245, 250);
+  border-radius: 15px;
 }
 
 #next-question {
+  display: flex;
+  justify-content: space-evenly;
   text-align: center;
   position: relative;
-
-  /*align-content: left;
-  right: 400px;*/
-  transform: translateX(50%);
-  /*flex-direction: column;*/
-  width: 150px;
-  height: 75px;
+  width: 190px;
+  height: 180px;
   background-color: lemonchiffon;
   font-weight: 600;
-  font-size: medium;
+  font-size: large;
+  visibility: hidden;
+  /*justify-content: center;*/
+}
+
+#msgDivision {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  text-align: center;
+  align-self: center;
+  /*background-color: lightblue;*/
+  height: 50px;
 }
 
 #message-box {
   /*  text-align: center;*/
-  background-color: lightgreen;
+  /*background-color: rgb(235, 250, 246);*/
   justify-content: center;
   font-size: 25px;
   font-weight: bold;
   /*width: 1000px;*/
   height: 40px;
+}
+
+#game-over-msg {
+  visibility: hidden;
 }
