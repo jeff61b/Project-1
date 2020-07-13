@@ -10,12 +10,12 @@
     <header>
       <div class="headingDiv">
         <button id="begin">Begin a New Game</button>
-        <h1>Trivia Game</h1>
+        <h1 id="triviaTitle">Trivia Game</h1>
         <h4 id="score-txt">Score:</h4>
       </div>
     </header>
     <div id="categoryDiv">
-      <h2 id="category"></h2>
+      <h2 id="category">There are 10 questions per round</h2>
     </div>
     <section class="questions-answers">
       <p name="question-txt" id="question-txt"></p>
@@ -33,9 +33,9 @@
     </section>
     <section class="game-over">
       <p id="game-over-msg">Game Over</p>
-      <p id="your-score-msg"></p>
+    </section>
+    <section id="newRound">
       <button id="another-round">Play Another Round of Ten Questions</button>
-      <button id="new-game">New Game - Start Over</button>
     </section>
     <script src="trivia.js"></script>
     <script src="script.js"></script>

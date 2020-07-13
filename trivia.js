@@ -89,7 +89,7 @@ const triviaQuestions = [
     questionId: 9,
     category: "Movies",
     question:
-      "Name the movie with this famous quote: 'Open the pod bay doors HAL'.",
+      "Name the movie with this famous quote: 'Open the pod bay doors, HAL'.",
     answer1: "Titanic",
     answer2: "Star Wars",
     answer3: "2001: A Space Odyssey",
@@ -104,7 +104,7 @@ const triviaQuestions = [
     answer1: "Paleozoic Era",
     answer2: "Mesozoic Era",
     answer3: "Cenozoic Era",
-    answer4: "The Bronze Age",
+    answer4: "Precambrian Era",
     correctAnswer: 2,
   },
   {
@@ -188,14 +188,14 @@ const triviaQuestions = [
     answer1: "Meteorology",
     answer2: "Geology",
     answer3: "Particle physics",
-    answer4: "Geology",
-    correctAnswer: 4,
+    answer4: "Astronomy",
+    correctAnswer: 1,
   },
   {
     questionId: 19,
     category: "Movies",
     question:
-      "What movies has this quote: 'You keep saying that word. I do not think it means what you think it means.'?",
+      "What movie has this quote: 'You keep saying that word. I do not think it means what you think it means.'?",
     answer1: "Raiders of the Lost Ark",
     answer2: "Back to the Future",
     answer3: "The Princess Bride",

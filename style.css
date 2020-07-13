@@ -2,23 +2,33 @@ header {
   text-align: center;
   font-size: xx-large;
 }
+
+#triviaTitle {
+  justify-content: center;
+}
 .headingDiv {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  height: 120px;
+}
+
+#score-txt {
+  margin: 55px 10px 10px 10px;
 }
 
 #begin {
   text-align: center;
   position: relative;
-
+  border-radius: 15px;
+  margin: 45px 5px 5px 5px;
   /*text-align: left;
   align-content: left;
   /* position: relative;
   right: 400px;*/
   flex-direction: column;
-  width: 190px;
-  height: 80px;
+  width: 150px;
+  height: 70px;
   background-color: yellow;
   font-weight: 600;
   font-size: x-large;
@@ -31,16 +41,18 @@ header {
   justify-content: space-evenly;
 }
 
+#instruction {
+  display: flex;
+  margin: -25px 5px 5px 5px;
+  text-align: center;
+  font-size: larger;
+}
+
 #question-txt {
   text-align: center;
   font-size: xx-large;
   font-weight: bold;
   /*background-color: moccasin;*/
-}
-
-#instruction {
-  text-align: center;
-  font-size: larger;
 }
 
 #answers {
@@ -56,6 +68,7 @@ header {
   font-size: x-large;
   background-color: rgb(230, 245, 250);
   border-radius: 15px;
+  margin: 5px 5px 5px 5px;
 }
 
 #answer2 {
@@ -64,6 +77,7 @@ header {
   font-size: x-large;
   background-color: rgb(230, 245, 250);
   border-radius: 15px;
+  margin: 5px 5px 5px 5px;
 }
 
 #answer3 {
@@ -72,6 +86,7 @@ header {
   font-size: x-large;
   background-color: rgb(230, 245, 250);
   border-radius: 15px;
+  margin: 5px 5px 5px 5px;
 }
 
 #answer4 {
@@ -80,21 +95,23 @@ header {
   font-size: x-large;
   background-color: rgb(230, 245, 250);
   border-radius: 15px;
+  margin: 5px 5px 5px 5px;
 }
 
 #next-question {
-  width: 190px;
-  height: 280px;
   display: flex;
+  width: 130px;
+  height: 280px;
   justify-content: space-evenly;
   text-align: center;
   position: relative;
-  background-color: rgb(245, 242, 213);
+  background-color: rgb(255, 255, 190);
   font-weight: 700;
   font-size: x-large;
   visibility: hidden;
   border-radius: 15px;
   /*justify-content: center;*/
+  margin: 20px 5px 5px 5px;
 }
 
 #msgDivision {
@@ -112,14 +129,47 @@ header {
   /*  text-align: center;*/
   /*background-color: rgb(235, 250, 246);*/
   justify-content: center;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: bold;
   /*width: 1000px;*/
   height: 40px;
+  margin: 100px 5px 5px 5px;
 }
-
+.game-over {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 #game-over-msg {
+  display: flex;
+  justify-content: center;
   visibility: hidden;
   font-size: 40px;
-  color: red;
+  color: darkblue;
+}
+
+#newRound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+}
+
+#another-round {
+  display: flex;
+  justify-content: space-evenly;
+  visibility: hidden;
+  border-radius: 15px;
+  background-color: yellow;
+  font-size: 20px;
+  font-weight: bold;
+  height: 80px;
+  width: 180px;
+  margin: 10px 5px 5px 5px;
+}
+
+#new-game {
+  visibility: hidden;
 }

@@ -7,6 +7,8 @@ let correctCount = 0; // total number of correct answers
 let questionCount = 0; // total number of questions answered
 let triviaIndex = 0; // used to read the triviaArray
 let questionIndex = 0; // used to select trivia Questions
+let myQuestion = document.querySelector("#question-txt");
+myQuestion.innerText = "Click the 'Begin' button to start a new game.";
 let roundLimit = 10; // number of the question to end this round
 let answer_1 = document.querySelector("#answer1");
 let answer_2 = document.querySelector("#answer2");
@@ -14,6 +16,7 @@ let answer_3 = document.querySelector("#answer3");
 let answer_4 = document.querySelector("#answer4");
 let nextQuestion = document.querySelector("#next-question");
 let categoryMsg = document.querySelector("#category");
+let anotherRound = document.querySelector("#another-round");
 gameMessage.innerText = " ";
 
 // Randomize the order of Trivia questions.
@@ -38,7 +41,6 @@ function shuffle(array) {
 // Load the next question into the screen
 function loadQuestion() {
   gameMessage.innerText = "(Click the correct answer)";
-  let myQuestion = document.querySelector("#question-txt");
   questionIndex = triviaArray[triviaIndex];
   console.log("question index" + questionIndex + "trivia index " + triviaIndex);
 
@@ -51,13 +53,18 @@ function loadQuestion() {
   answer_4.innerText = triviaQuestions[questionIndex].answer4;
   rightAnswer = triviaQuestions[questionIndex].correctAnswer;
   categoryMsg.innerText =
-    "Category: " + triviaQuestions[questionIndex].category;
+    "Question: " +
+    (questionCount + 1) +
+    "  -  " +
+    triviaQuestions[questionIndex].category;
 
   console.log(rightAnswer);
 }
 
 // Begin a new Game
 const beginGame = (event) => {
+  questionCount = 0;
+  correctCount = 0;
   shuffle(triviaArray);
   console.log("Trivia array " + triviaArray);
   triviaIndex = 0;
@@ -65,6 +72,8 @@ const beginGame = (event) => {
   console.log(beginNow);
   beginNow.style.visibility = "hidden";
   nextQuestion.style.visibility = "hidden";
+  anotherRound.style.visibility = "hidden";
+  gameOverMsg.style.visibility = "hidden";
   // clear the message field
   // hide the game over message
   // set the question counter to 1
@@ -90,6 +99,23 @@ const event4 = (event) => {
   processAnswer(4);
 };
 
+// User wants to play another round of 10 questions
+// but does not want to start a new game.
+const anotherRnd = (event) => {
+  roundLimit += 10;
+  console.log(anotherRound);
+  beginNow.style.visibility = "hidden";
+  nextQuestion.style.visibility = "hidden";
+  anotherRound.style.visibility = "hidden";
+  gameOverMsg.style.visibility = "hidden";
+  triviaIndex += 1;
+  loadQuestion();
+  answer_1.disabled = false;
+  answer_2.disabled = false;
+  answer_3.disabled = false;
+  answer_4.disabled = false;
+};
+
 // Hit the Next Question button
 const nxtQuestion = (event) => {
   console.log(" Next Question");
@@ -102,16 +128,25 @@ const nxtQuestion = (event) => {
   answer_4.style.background = "lightcyan";
   gameMessage.style.color = "black";
   beginNow.style.visibility = "hidden";
+  answer_1.disabled = false;
+  answer_2.disabled = false;
+  answer_3.disabled = false;
+  answer_4.disabled = false;
 };
 
+// Processing for when the user completes a round of 10 questions.
 function gameOver() {
   beginNow.style.visibility = "visible";
   nextQuestion.style.visibility = "hidden";
   gameOverMsg.style.visibility = "visible";
-  // Display Game over message
-  // Display the user's score
-  // Display the "Play another round" button
-  // Display the "New Game - Start Over" button
+  anotherRound.style.visibility = "visible";
+  gameOverMsg.innerText =
+    "Game Over - You got " +
+    correctCount +
+    " out of " +
+    questionCount +
+    " correct";
+
   //  - could be the same as the "Click here to begin"  button
   // Hide the Next Question button.
 }
@@ -174,6 +209,11 @@ function processAnswer(aNum) {
     console.log("game over " + questionCount);
     gameOver();
   }
+  answer_1.disabled = true;
+  answer_2.disabled = true;
+  answer_3.disabled = true;
+  answer_4.disabled = true;
+
   // increment the question counter
   // if questionCount >= roundLimit (10, 20, 30, 40)
   //  call the gameOver function
@@ -194,5 +234,6 @@ button3.addEventListener("click", event3);
 let button4 = document.querySelector("#answer4");
 button4.addEventListener("click", event4);
 
+anotherRound.addEventListener("click", anotherRnd);
 nextQuestion.addEventListener("click", nxtQuestion);
 // will need a for loop to process 10 questions
