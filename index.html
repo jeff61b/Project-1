@@ -9,9 +9,11 @@
   <body>
     <header>
       <div class="headingDiv">
-        <button id="begin">Begin a New Game</button>
-        <h1 id="triviaTitle">Trivia Game</h1>
-        <h4 id="score-txt">Score:</h4>
+        <button id="begin">
+          Begin a New Game<span title="Click here to start a new game"></span>
+        </button>
+        <h1 id="triviaTitle">Jeff's Trivia</h1>
+        <h4 id="score-txt">Score: 0/0</h4>
       </div>
     </header>
     <div id="categoryDiv">
@@ -33,6 +35,11 @@
     </section>
     <section class="game-over">
       <p id="game-over-msg">Game Over</p>
+    </section>
+    <section class="thats-all">
+      <p id="thats-all-msg">
+        That's all the questions. Click 'Begin a New Game' to start over
+      </p>
     </section>
     <section id="newRound">
       <button id="another-round">Play Another Round of Ten Questions</button>

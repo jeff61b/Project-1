@@ -1,6 +1,7 @@
 console.log("Trivia Game");
 let gameMessage = document.querySelector("#message-box");
 let gameOverMsg = document.querySelector("#game-over-msg");
+let thatsAll = document.querySelector("#thats-all-msg");
 let msgPrompt = document.querySelector("#instruction");
 let rightAnswer = 0; // number of the correct answer ( 1 - 4) for this question
 let correctCount = 0; // total number of correct answers
@@ -10,6 +11,7 @@ let questionIndex = 0; // used to select trivia Questions
 let myQuestion = document.querySelector("#question-txt");
 myQuestion.innerText = "Click the 'Begin' button to start a new game.";
 let roundLimit = 10; // number of the question to end this round
+const questionLimit = 20; // Total count of all questions.
 let answer_1 = document.querySelector("#answer1");
 let answer_2 = document.querySelector("#answer2");
 let answer_3 = document.querySelector("#answer3");
@@ -42,11 +44,8 @@ function shuffle(array) {
 function loadQuestion() {
   gameMessage.innerText = "(Click the correct answer)";
   questionIndex = triviaArray[triviaIndex];
-  console.log("question index" + questionIndex + "trivia index " + triviaIndex);
 
-  console.log(myQuestion);
   myQuestion.innerText = triviaQuestions[questionIndex].question;
-  console.log(myQuestion);
   answer_1.innerText = triviaQuestions[questionIndex].answer1;
   answer_2.innerText = triviaQuestions[questionIndex].answer2;
   answer_3.innerText = triviaQuestions[questionIndex].answer3;
@@ -57,26 +56,24 @@ function loadQuestion() {
     (questionCount + 1) +
     "  -  " +
     triviaQuestions[questionIndex].category;
-
-  console.log(rightAnswer);
+  answer_1.disabled = false;
+  answer_2.disabled = false;
+  answer_3.disabled = false;
+  answer_4.disabled = false;
 }
 
 // Begin a new Game
 const beginGame = (event) => {
   questionCount = 0;
   correctCount = 0;
-  shuffle(triviaArray);
-  console.log("Trivia array " + triviaArray);
+  shuffle(triviaArray); // shuffle the order of the questions
   triviaIndex = 0;
   loadQuestion();
-  console.log(beginNow);
   beginNow.style.visibility = "hidden";
   nextQuestion.style.visibility = "hidden";
   anotherRound.style.visibility = "hidden";
   gameOverMsg.style.visibility = "hidden";
-  // clear the message field
-  // hide the game over message
-  // set the question counter to 1
+  thatsAll.style.visibility = "hidden";
 };
 
 const event1 = (event) => {
@@ -100,25 +97,27 @@ const event4 = (event) => {
 };
 
 // User wants to play another round of 10 questions
-// but does not want to start a new game.
 const anotherRnd = (event) => {
   roundLimit += 10;
-  console.log(anotherRound);
   beginNow.style.visibility = "hidden";
   nextQuestion.style.visibility = "hidden";
   anotherRound.style.visibility = "hidden";
   gameOverMsg.style.visibility = "hidden";
+  thatsAll.style.visibility = "hidden";
   triviaIndex += 1;
   loadQuestion();
   answer_1.disabled = false;
   answer_2.disabled = false;
   answer_3.disabled = false;
   answer_4.disabled = false;
+  answer_1.style.background = "lightcyan";
+  answer_2.style.background = "lightcyan";
+  answer_3.style.background = "lightcyan";
+  answer_4.style.background = "lightcyan";
 };
 
 // Hit the Next Question button
 const nxtQuestion = (event) => {
-  console.log(" Next Question");
   triviaIndex += 1;
   loadQuestion();
   nextQuestion.style.visibility = "hidden";
@@ -134,18 +133,26 @@ const nxtQuestion = (event) => {
   answer_4.disabled = false;
 };
 
-// Processing for when the user completes a round of 10 questions.
+// User completed a round of 10 questions.
 function gameOver() {
-  beginNow.style.visibility = "visible";
-  nextQuestion.style.visibility = "hidden";
-  gameOverMsg.style.visibility = "visible";
-  anotherRound.style.visibility = "visible";
+  if (roundLimit === questionLimit) {
+    anotherRound.style.visibility = "hidden";
+    thatsAll.style.visibility = "visible";
+    thatsAll.innerText = "Game Over - Click 'Begin a New Game' to start over";
+  } else {
+    anotherRound.style.visibility = "visible";
+  }
   gameOverMsg.innerText =
-    "Game Over - You got " +
+    "End of Round " +
+    roundLimit / 10 +
+    " - You got " +
     correctCount +
     " out of " +
     questionCount +
     " correct";
+  beginNow.style.visibility = "visible";
+  nextQuestion.style.visibility = "hidden";
+  gameOverMsg.style.visibility = "visible";
 
   //  - could be the same as the "Click here to begin"  button
   // Hide the Next Question button.
