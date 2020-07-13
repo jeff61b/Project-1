@@ -1,17 +1,20 @@
 console.log("Trivia Game");
 let gameMessage = document.querySelector("#message-box");
+let gameOverMsg = document.querySelector("#game-over-msg");
 let msgPrompt = document.querySelector("#instruction");
 let rightAnswer = 0; // number of the correct answer ( 1 - 4) for this question
 let correctCount = 0; // total number of correct answers
 let questionCount = 0; // total number of questions answered
 let triviaIndex = 0; // used to read the triviaArray
-let triviaArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let questionIndex = 0; // used to select triviaQuestions
+let questionIndex = 0; // used to select trivia Questions
 let roundLimit = 10; // number of the question to end this round
 let answer_1 = document.querySelector("#answer1");
 let answer_2 = document.querySelector("#answer2");
 let answer_3 = document.querySelector("#answer3");
 let answer_4 = document.querySelector("#answer4");
+let nextQuestion = document.querySelector("#next-question");
+let categoryMsg = document.querySelector("#category");
+gameMessage.innerText = " ";
 
 // Randomize the order of Trivia questions.
 // I got this logic to randomize the elements in an array from stackoverflow.com
@@ -47,6 +50,9 @@ function loadQuestion() {
   answer_3.innerText = triviaQuestions[questionIndex].answer3;
   answer_4.innerText = triviaQuestions[questionIndex].answer4;
   rightAnswer = triviaQuestions[questionIndex].correctAnswer;
+  categoryMsg.innerText =
+    "Category: " + triviaQuestions[questionIndex].category;
+
   console.log(rightAnswer);
 }
 
@@ -94,10 +100,14 @@ const nxtQuestion = (event) => {
   answer_2.style.background = "lightcyan";
   answer_3.style.background = "lightcyan";
   answer_4.style.background = "lightcyan";
+  gameMessage.style.color = "black";
+  beginNow.style.visibility = "hidden";
 };
 
 function gameOver() {
   beginNow.style.visibility = "visible";
+  nextQuestion.style.visibility = "hidden";
+  gameOverMsg.style.visibility = "visible";
   // Display Game over message
   // Display the user's score
   // Display the "Play another round" button
@@ -123,6 +133,7 @@ function processAnswer(aNum) {
       gameMessage.innerText = "Correct Answer";
     }
     console.log(gameMessage);
+    gameMessage.style.color = "black";
     correctCount += 1;
     // update the count of correct answers
   } else {
@@ -137,6 +148,7 @@ function processAnswer(aNum) {
     } else {
       gameMessage.innerText = "Wrong Answer!";
     }
+    gameMessage.style.color = "red";
     // change background to yellow for the correct answer
   }
   questionCount += 1;
@@ -158,8 +170,9 @@ function processAnswer(aNum) {
   if (rightAnswer === 4) {
     answer_4.style.background = "lemonchiffon";
   }
-  if ((questionCount = roundLimit)) {
+  if (questionCount === roundLimit) {
     console.log("game over " + questionCount);
+    gameOver();
   }
   // increment the question counter
   // if questionCount >= roundLimit (10, 20, 30, 40)
@@ -181,6 +194,5 @@ button3.addEventListener("click", event3);
 let button4 = document.querySelector("#answer4");
 button4.addEventListener("click", event4);
 
-let nextQuestion = document.querySelector("#next-question");
 nextQuestion.addEventListener("click", nxtQuestion);
 // will need a for loop to process 10 questions
