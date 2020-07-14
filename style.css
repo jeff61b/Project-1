@@ -2,6 +2,12 @@ header {
   text-align: center;
   font-size: xx-large;
 }
+#top-score {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2px 100px 2px 2px;
+  visibility: hidden;
+}
 
 #triviaTitle {
   justify-content: center;
@@ -11,6 +17,7 @@ header {
   flex-direction: row;
   justify-content: space-evenly;
   height: 120px;
+  margin: 1px 1px 1px 1px;
 }
 
 #score-txt {
@@ -22,8 +29,7 @@ header {
   position: relative;
   border-radius: 15px;
   margin: 45px 5px 5px 5px;
-  /*text-align: left;
-  align-content: left;
+  /*align-content: left;
   /* position: relative;
   right: 400px;*/
   flex-direction: column;
@@ -31,7 +37,7 @@ header {
   height: 70px;
   background-color: yellow;
   font-weight: 600;
-  font-size: x-large;
+  font-size: 45px;
   justify-content: center;
 }
 

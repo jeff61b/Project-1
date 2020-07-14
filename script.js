@@ -19,7 +19,10 @@ let answer_4 = document.querySelector("#answer4");
 let nextQuestion = document.querySelector("#next-question");
 let categoryMsg = document.querySelector("#category");
 let anotherRound = document.querySelector("#another-round");
+let displayScore = document.querySelector("#score-txt");
 gameMessage.innerText = " ";
+let highScore = 0;
+let topScore = document.querySelector("#top-score");
 
 // Randomize the order of Trivia questions.
 // I got this logic to randomize the elements in an array from stackoverflow.com
@@ -64,6 +67,8 @@ function loadQuestion() {
 
 // Begin a new Game
 const beginGame = (event) => {
+  console.log("Begin Button clicked");
+
   questionCount = 0;
   correctCount = 0;
   shuffle(triviaArray); // shuffle the order of the questions
@@ -74,6 +79,11 @@ const beginGame = (event) => {
   anotherRound.style.visibility = "hidden";
   gameOverMsg.style.visibility = "hidden";
   thatsAll.style.visibility = "hidden";
+  answer_1.style.background = "lightcyan";
+  answer_2.style.background = "lightcyan";
+  answer_3.style.background = "lightcyan";
+  answer_4.style.background = "lightcyan";
+  displayScore.innerText = "Score: " + correctCount + "/" + questionCount;
 };
 
 const event1 = (event) => {
@@ -138,7 +148,7 @@ function gameOver() {
   if (roundLimit === questionLimit) {
     anotherRound.style.visibility = "hidden";
     thatsAll.style.visibility = "visible";
-    thatsAll.innerText = "Game Over - Click 'Begin a New Game' to start over";
+    thatsAll.innerText = "Game Over - Click 'Begin' to start over";
   } else {
     anotherRound.style.visibility = "visible";
   }
@@ -153,9 +163,10 @@ function gameOver() {
   beginNow.style.visibility = "visible";
   nextQuestion.style.visibility = "hidden";
   gameOverMsg.style.visibility = "visible";
-
-  //  - could be the same as the "Click here to begin"  button
-  // Hide the Next Question button.
+  if (correctCount > highScore) {
+    topScore.innerText = "Top Score: " + correctCount;
+    topScore.style.visibility = "visible";
+  }
 }
 
 // Process the button when the user clicks an answer
@@ -177,9 +188,7 @@ function processAnswer(aNum) {
     console.log(gameMessage);
     gameMessage.style.color = "black";
     correctCount += 1;
-    // update the count of correct answers
   } else {
-    // Generate a wrong answer message
     let wrongAnswerIndex = Math.floor(Math.random() * 4) + 1;
     if (wrongAnswerIndex === 1) {
       gameMessage.innerText = "Oh, sorry. Thats the wrong Answer";
@@ -191,10 +200,8 @@ function processAnswer(aNum) {
       gameMessage.innerText = "Wrong Answer!";
     }
     gameMessage.style.color = "red";
-    // change background to yellow for the correct answer
   }
   questionCount += 1;
-  let displayScore = document.querySelector("#score-txt");
   //console.log(displayScore);
   displayScore.innerText = "Score: " + correctCount + "/" + questionCount;
   console.log(displayScore);
@@ -243,4 +250,3 @@ button4.addEventListener("click", event4);
 
 anotherRound.addEventListener("click", anotherRnd);
 nextQuestion.addEventListener("click", nxtQuestion);
-// will need a for loop to process 10 questions
