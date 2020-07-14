@@ -1,16 +1,17 @@
 ## Jeff's Trivia Game
 
-**Trivia Game Description**
+###**Trivia Game Description**###
 This project is a multiple choice trivia game.
-Features
-Once the user clicks the "_Begin_" button the program displays a trivia question and four answers.
-The user simply clicks on the correct answer and the game will indicate if they are correct.
-The game displays a running score of how many questions were answered correctly.
-After each question, the user clicks the "_Next Question_" button to continue.
-After completing a round of ten questions, the program displays the score and the user has the option to play another round of ten questions or begin the game all over again.
-The game keeps track of the high score. If "_Begin_" is clicked again, the score of the new game is compared to the high score to see if a new high score has been set.
-The game displays special messages for a perfect score or a new high score.
-The game is stored here: [Trivia Game](https://github.com/jeff61b/Project-1)
+####Features####
+
+- Once the user clicks the "_Begin_" button the program displays a trivia question and four answers.
+- The user simply clicks on the correct answer and the game will indicate if they are correct.
+- The game displays a running score of how many questions were answered correctly.
+- After each question, the user clicks the "_Next Question_" button to continue.
+- After completing a round of ten questions, the program displays the score and the user has the option to play another round of ten questions or begin the game all over again.
+- The game keeps track of the high score. If "_Begin_" is clicked again, the score of the new game is compared to the high score to see if a new high score has been set.
+- The game displays special messages for a perfect score or a new high score.
+- The game is stored here: [Trivia Game](https://github.com/jeff61b/Project-1)
 
 **Functions**
 The functionality of the game was broken down into these individual JavaScript functions.

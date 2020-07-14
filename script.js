@@ -16,6 +16,10 @@ let answer_1 = document.querySelector("#answer1");
 let answer_2 = document.querySelector("#answer2");
 let answer_3 = document.querySelector("#answer3");
 let answer_4 = document.querySelector("#answer4");
+answer_1.disabled = true;
+answer_2.disabled = true;
+answer_3.disabled = true;
+answer_4.disabled = true;
 let nextQuestion = document.querySelector("#next-question");
 let categoryMsg = document.querySelector("#category");
 let anotherRound = document.querySelector("#another-round");
@@ -78,6 +82,7 @@ const beginGame = (event) => {
   shuffle(triviaArray); // shuffle the order of the questions
   triviaIndex = 0;
   loadQuestion();
+  gameOverMsg.style.visibility = "visible";
   beginNow.style.visibility = "hidden";
   nextQuestion.style.visibility = "hidden";
   anotherRound.style.visibility = "hidden";
@@ -172,14 +177,14 @@ function gameOver() {
     anotherRound.style.visibility = "hidden";
     thatsAll.style.visibility = "visible";
     thatsAll.innerText = "Game Over - Click 'Begin' to start over";
-    //roundLimit = 10;
+    gameOverMsg.style.visibility = "hidden";
   } else {
     anotherRound.style.visibility = "visible";
   }
   gameOverMsg.innerText = "End of Round " + roundLimit / 10;
   beginNow.style.visibility = "visible";
   nextQuestion.style.visibility = "hidden";
-  gameOverMsg.style.visibility = "visible";
+  gameOverMsg.style.visibility = "hidden";
 }
 
 const rightAnswerMsg = [
