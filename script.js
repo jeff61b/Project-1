@@ -205,30 +205,13 @@ function processAnswer(aNum) {
     console.log("right answer Index " + rightAnswerIndex);
 
     gameMessage.innerText = rightAnswerMsg[rightAnswerIndex];
-    //    if (rightAnswerIndex === 1) {
-    //      gameMessage.innerText = "Very good. Thats the correct Answer.";
-    //    } else if (rightAnswerIndex === 2) {
-    //      gameMessage.innerText = "Awesome! You got that right.";
-    //    } else if (rightAnswerIndex === 3) {
-    //      gameMessage.innerText = "Good job. That's the right Answer";
-    //    } else {
-    //      gameMessage.innerText = "Correct Answer";
-    //    }
+
     console.log(gameMessage);
     gameMessage.style.color = "black";
     correctCount += 1;
   } else {
     let wrongAnswerIndex = Math.floor(Math.random() * 4);
     gameMessage.innerText = wrongAnswerMsg[wrongAnswerIndex];
-    //    if (wrongAnswerIndex === 1) {
-    //      gameMessage.innerText = "Oh, sorry. Thats the wrong Answer";
-    //    } else if (wrongAnswerIndex === 2) {
-    //      gameMessage.innerText = " Nope. Wrong Answer";
-    //    } else if (wrongAnswerIndex === 3) {
-    //      gameMessage.innerText = " Oops. Wrong Answer";
-    //    } else {
-    //      gameMessage.innerText = "Wrong Answer!";
-    //    }
 
     gameMessage.style.color = "red";
   }

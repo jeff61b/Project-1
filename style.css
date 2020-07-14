@@ -29,9 +29,6 @@ header {
   position: relative;
   border-radius: 15px;
   margin: 45px 5px 5px 5px;
-  /*align-content: left;
-  /* position: relative;
-  right: 400px;*/
   flex-direction: column;
   width: 150px;
   height: 70px;
@@ -58,15 +55,12 @@ header {
   text-align: center;
   font-size: xx-large;
   font-weight: bold;
-  /*background-color: moccasin;*/
 }
 
 #answers {
   text-align: center;
   align-self: center;
-  /*width: 1000px; */
   height: 210px;
-  /*background-color: lightblue;*/
   margin: 5px 5px 5px 5px;
 }
 #answer1 {
@@ -117,7 +111,6 @@ header {
   font-size: x-large;
   visibility: hidden;
   border-radius: 15px;
-  /*justify-content: center;*/
   margin: 20px 5px 5px 5px;
 }
 
@@ -128,17 +121,13 @@ header {
   justify-content: center;
   text-align: center;
   align-self: center;
-  /*background-color: lightblue;*/
   height: 50px;
 }
 
 #message-box {
-  /*  text-align: center;*/
-  /*background-color: rgb(235, 250, 246);*/
   justify-content: center;
   font-size: 30px;
   font-weight: bold;
-  /*width: 1000px;*/
   height: 40px;
   margin: 100px 5px 5px 5px;
 }
