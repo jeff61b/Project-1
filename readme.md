@@ -1,8 +1,9 @@
 ## Jeff's Trivia Game
 
-###**Trivia Game Description**###
+####Trivia Game Description
 This project is a multiple choice trivia game.
-####Features####
+
+####Features
 
 - Once the user clicks the "_Begin_" button the program displays a trivia question and four answers.
 - The user simply clicks on the correct answer and the game will indicate if they are correct.
