@@ -11,7 +11,7 @@ let questionIndex = 0; // used to select trivia Questions
 let myQuestion = document.querySelector("#question-txt");
 myQuestion.innerText = "Click the 'Begin' button to start a new game.";
 let roundLimit = 10; // number of the question to end this round
-const questionLimit = 20; // Total count of all questions.
+const questionLimit = 40; // Total count of all questions.
 let answer_1 = document.querySelector("#answer1");
 let answer_2 = document.querySelector("#answer2");
 let answer_3 = document.querySelector("#answer3");
@@ -73,6 +73,7 @@ function loadQuestion() {
 // Begin a new Game
 const beginGame = (event) => {
   console.log("Begin Button clicked");
+  gameOverMsg.innerText = "  ";
   if (highScore > 0) {
     topScore.innerText = "Top Score: " + highScore + "/" + roundLimit;
   }
@@ -86,7 +87,7 @@ const beginGame = (event) => {
   beginNow.style.visibility = "hidden";
   nextQuestion.style.visibility = "hidden";
   anotherRound.style.visibility = "hidden";
-  gameOverMsg.style.visibility = "hidden";
+  //gameOverMsg.style.visibility = "hidden";
   thatsAll.style.visibility = "hidden";
   answer_1.style.background = "lightcyan";
   answer_2.style.background = "lightcyan";
@@ -176,15 +177,15 @@ function gameOver() {
   if (roundLimit === questionLimit) {
     anotherRound.style.visibility = "hidden";
     thatsAll.style.visibility = "visible";
-    thatsAll.innerText = "Game Over - Click 'Begin' to start over";
+    thatsAll.innerText = "Game Over - Click 'Begin' to start a new game";
     gameOverMsg.style.visibility = "hidden";
   } else {
     anotherRound.style.visibility = "visible";
+    gameOverMsg.style.visibility = "visible";
   }
   gameOverMsg.innerText = "End of Round " + roundLimit / 10;
   beginNow.style.visibility = "visible";
   nextQuestion.style.visibility = "hidden";
-  gameOverMsg.style.visibility = "hidden";
 }
 
 const rightAnswerMsg = [
