@@ -163,7 +163,7 @@ const triviaQuestions = [
     questionId: 16,
     category: "History",
     question:
-      "How many US Presidents have been removed from office through the impeachemt process?",
+      "How many US Presidents have been removed from office through the impeachment process?",
     answer1: "Zero",
     answer2: "1",
     answer3: "2",
@@ -427,6 +427,72 @@ const triviaQuestions = [
     answer4: "Quintessential",
     correctAnswer: 3,
   },
+  {
+    questionId: 41,
+    category: "Word Definitions",
+    question:
+      "Which word means able to use the right or left hand equally well?",
+    answer1: "Ambivalent",
+    answer2: "Bilateral",
+    answer3: "Versatile",
+    answer4: "Ambidextrous",
+    correctAnswer: 4,
+  },
+  {
+    questionId: 42,
+    category: "Word Definitions",
+    question:
+      "Which word means to make less bad or to lessen the degree of harm?",
+    answer1: "Mitigate",
+    answer2: "Substantiate",
+    answer3: "Machinate",
+    answer4: "Litigate",
+    correctAnswer: 1,
+  },
+  {
+    questionId: 43,
+    category: "Word Definitions",
+    question:
+      "Which word means a step by step process to arrive at a desired outcome or accomplish a task?",
+    answer1: "Contrivance",
+    answer2: "Algorithm",
+    answer3: "Interface",
+    answer4: "Logarithm",
+    correctAnswer: 2,
+  },
+  {
+    questionId: 44,
+    category: "Famous Comedians",
+    question:
+      "Name this comedian: 'I've had so much plastic surgery, when I die they're going to donate my body to Tupperware.'",
+    answer1: "Richard Pryor",
+    answer2: "Phyllis Diller",
+    answer3: "Joan Rivers",
+    answer4: "Roseanne Barr",
+    correctAnswer: 3,
+  },
+  {
+    questionId: 45,
+    category: "Famous Comedians",
+    question:
+      "Name this comedian: 'One morning I shot an elephant in my pajamas. How he got in my pajamas I'll never know.'",
+    answer1: "Bob Hope",
+    answer2: "Robin Williams",
+    answer3: "Rodney Dangerfield",
+    answer4: "Groucho Marx",
+    correctAnswer: 4,
+  },
+  {
+    questionId: 46,
+    category: "Basic Civics",
+    question:
+      "What is it called when people contact or visit their elected officials with the intent to influence their vote on legislation?",
+    answer1: "Lobbying",
+    answer2: "Pettitioning",
+    answer3: "Censuring",
+    answer4: "Polling",
+    correctAnswer: 1,
+  },
 ];
 let triviaArray = [
   0,
@@ -469,4 +535,10 @@ let triviaArray = [
   37,
   38,
   39,
+  40,
+  41,
+  42,
+  43,
+  44,
+  45,
 ];

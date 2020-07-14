@@ -23,6 +23,7 @@ let displayScore = document.querySelector("#score-txt");
 gameMessage.innerText = " ";
 let highScore = 0;
 let topScore = document.querySelector("#top-score");
+let topScoreMsg = "Top Score: ";
 
 // Randomize the order of Trivia questions.
 // I got this logic to randomize the elements in an array from stackoverflow.com
@@ -68,7 +69,10 @@ function loadQuestion() {
 // Begin a new Game
 const beginGame = (event) => {
   console.log("Begin Button clicked");
-
+  if (highScore > 0) {
+    topScore.innerText = "Top Score: " + highScore + "/" + roundLimit;
+  }
+  roundLimit = 10;
   questionCount = 0;
   correctCount = 0;
   shuffle(triviaArray); // shuffle the order of the questions
@@ -108,6 +112,7 @@ const event4 = (event) => {
 
 // User wants to play another round of 10 questions
 const anotherRnd = (event) => {
+  topScore.innerText = "Top Score: " + highScore + "/" + roundLimit;
   roundLimit += 10;
   beginNow.style.visibility = "hidden";
   nextQuestion.style.visibility = "hidden";
@@ -124,6 +129,7 @@ const anotherRnd = (event) => {
   answer_2.style.background = "lightcyan";
   answer_3.style.background = "lightcyan";
   answer_4.style.background = "lightcyan";
+  gameMessage.style.color = "black";
 };
 
 // Hit the Next Question button
@@ -145,60 +151,85 @@ const nxtQuestion = (event) => {
 
 // User completed a round of 10 questions.
 function gameOver() {
+  if (correctCount >= highScore) {
+    if (correctCount === roundLimit) {
+      topScoreMsg = "Awesome! Perfect score: ";
+      //      topScore.innerText =
+      //        "Awesome! Perfect score: " + correctCount + "/" + roundLimit;
+    } else if (correctCount === highScore) {
+      topScoreMsg = "Good job! You tied the Top Score: ";
+      //      topScore.innerText = "Good job! You tied the Top Score: " + correctCount + "/" + roundLimit;
+    } else {
+      topScoreMsg = "Good job! You set a new Top Score: ";
+      //      topScore.innerText =
+      //        "Good job! You set a new Top Score: " + correctCount + "/" + roundLimit;
+    }
+    topScore.innerText = topScoreMsg + correctCount + "/" + roundLimit;
+    topScore.style.visibility = "visible";
+    highScore = correctCount;
+  }
   if (roundLimit === questionLimit) {
     anotherRound.style.visibility = "hidden";
     thatsAll.style.visibility = "visible";
     thatsAll.innerText = "Game Over - Click 'Begin' to start over";
+    //roundLimit = 10;
   } else {
     anotherRound.style.visibility = "visible";
   }
-  gameOverMsg.innerText =
-    "End of Round " +
-    roundLimit / 10 +
-    " - You got " +
-    correctCount +
-    " out of " +
-    questionCount +
-    " correct";
+  gameOverMsg.innerText = "End of Round " + roundLimit / 10;
   beginNow.style.visibility = "visible";
   nextQuestion.style.visibility = "hidden";
   gameOverMsg.style.visibility = "visible";
-  if (correctCount > highScore) {
-    topScore.innerText = "Top Score: " + correctCount;
-    topScore.style.visibility = "visible";
-  }
 }
+
+const rightAnswerMsg = [
+  "Very good. That's the correct answer",
+  "Awesome! You got that right",
+  "Good job. That's the right answer",
+  "Correct answer. Way to go!",
+];
+
+const wrongAnswerMsg = [
+  "Sorry. That's the wrong answer",
+  "Oops! Wrong answer",
+  "Not quite. That's the wrong answer",
+  "Nice try, but that's the wrong answer",
+];
 
 // Process the button when the user clicks an answer
 function processAnswer(aNum) {
   console.log("aNum: " + aNum);
   msgPrompt.innerText = "   ";
   if (aNum === rightAnswer) {
-    let rightAnswerIndex = Math.floor(Math.random() * 4) + 1;
+    let rightAnswerIndex = Math.floor(Math.random() * 4);
     console.log("right answer Index " + rightAnswerIndex);
-    if (rightAnswerIndex === 1) {
-      gameMessage.innerText = "Very good. Thats the correct Answer.";
-    } else if (rightAnswerIndex === 2) {
-      gameMessage.innerText = "Awesome! You got that right.";
-    } else if (rightAnswerIndex === 3) {
-      gameMessage.innerText = "Good job. That's the right Answer";
-    } else {
-      gameMessage.innerText = "Correct Answer";
-    }
+
+    gameMessage.innerText = rightAnswerMsg[rightAnswerIndex];
+    //    if (rightAnswerIndex === 1) {
+    //      gameMessage.innerText = "Very good. Thats the correct Answer.";
+    //    } else if (rightAnswerIndex === 2) {
+    //      gameMessage.innerText = "Awesome! You got that right.";
+    //    } else if (rightAnswerIndex === 3) {
+    //      gameMessage.innerText = "Good job. That's the right Answer";
+    //    } else {
+    //      gameMessage.innerText = "Correct Answer";
+    //    }
     console.log(gameMessage);
     gameMessage.style.color = "black";
     correctCount += 1;
   } else {
-    let wrongAnswerIndex = Math.floor(Math.random() * 4) + 1;
-    if (wrongAnswerIndex === 1) {
-      gameMessage.innerText = "Oh, sorry. Thats the wrong Answer";
-    } else if (wrongAnswerIndex === 2) {
-      gameMessage.innerText = " Nope. Wrong Answer";
-    } else if (wrongAnswerIndex === 3) {
-      gameMessage.innerText = " Oops. Wrong Answer";
-    } else {
-      gameMessage.innerText = "Wrong Answer!";
-    }
+    let wrongAnswerIndex = Math.floor(Math.random() * 4);
+    gameMessage.innerText = wrongAnswerMsg[wrongAnswerIndex];
+    //    if (wrongAnswerIndex === 1) {
+    //      gameMessage.innerText = "Oh, sorry. Thats the wrong Answer";
+    //    } else if (wrongAnswerIndex === 2) {
+    //      gameMessage.innerText = " Nope. Wrong Answer";
+    //    } else if (wrongAnswerIndex === 3) {
+    //      gameMessage.innerText = " Oops. Wrong Answer";
+    //    } else {
+    //      gameMessage.innerText = "Wrong Answer!";
+    //    }
+
     gameMessage.style.color = "red";
   }
   questionCount += 1;
@@ -207,6 +238,7 @@ function processAnswer(aNum) {
   console.log(displayScore);
   nextQuestion.style.visibility = "visible";
   console.log("answer num " + aNum);
+  // answer[rightAnswer].background = "lemonchiffon";
   if (rightAnswer === 1) {
     answer_1.style.background = "lemonchiffon";
   }
