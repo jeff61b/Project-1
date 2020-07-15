@@ -27,4 +27,6 @@ The functionality of the game was broken down into these individual JavaScript f
 - gameOver – displays messages and options for when the user has completed a round of ten questions.
 - processAnswer – responds when user clicks any of the four “Answer” buttons.
 
+Here is the wireframe image used in designing this game.
+
 ![](wireframe.png)

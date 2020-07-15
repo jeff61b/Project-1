@@ -135,6 +135,7 @@ header {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  font-weight: bold;
 }
 #game-over-msg {
   display: flex;

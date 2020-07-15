@@ -216,7 +216,7 @@ const triviaQuestions = [
   {
     questionId: 21,
     category: "Vocabulary",
-    question: "What is the literal translaton of the French term cul-de-sac?",
+    question: "What is the literal translaton of the French term 'cul-de-sac'?",
     answer1: "Dead end",
     answer2: "Circle",
     answer3: "Turn around",
@@ -259,7 +259,7 @@ const triviaQuestions = [
     questionId: 25,
     category: "Basic Civics",
     question:
-      "What do we call the constitution guarantee that a defendant will receive a fair and impartial trial?",
+      "What do we call the constitutional guarantee that a defendant will receive a fair and impartial trial?",
     answer1: "Common Law",
     answer2: "Habeas Corpus",
     answer3: "Burden of proof",

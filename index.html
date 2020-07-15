@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+      body {
+        background-image: url("greydesign.png");
+        background-size: 100% 121%;
+      }
+    </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trivia Game</title>
@@ -11,6 +17,10 @@
       }
       p.a {
         font-family: "Arial Narrow", "Franklin Gothic Medium", Arial, sans-serif;
+      }
+      p.b {
+        font-family: "Arial Rounded MT", "Franklin Gothic Medium", Arial,
+          sans-serif;
       }
     </style>
   </head>
@@ -45,7 +55,7 @@
       </div>
     </section>
     <section class="game-over">
-      <p id="game-over-msg"></p>
+      <p id="game-over-msg" class="b"></p>
     </section>
     <section id="newRound">
       <button id="another-round">Play Another Round of Ten Questions</button>
