@@ -1,7 +1,6 @@
 console.log("Trivia Game");
 let gameMessage = document.querySelector("#message-box");
 let gameOverMsg = document.querySelector("#game-over-msg");
-let thatsAll = document.querySelector("#thats-all-msg");
 let msgPrompt = document.querySelector("#instruction");
 let rightAnswer = 0; // number of the correct answer ( 1 - 4) for this question
 let correctCount = 0; // total number of correct answers
@@ -36,7 +35,6 @@ function shuffle(array) {
   let currentIndex = array.length,
     temporaryValue,
     randomIndex;
-
   while (0 !== currentIndex) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
@@ -72,7 +70,6 @@ function loadQuestion() {
 
 // Begin a new Game
 const beginGame = (event) => {
-  console.log("Begin Button clicked");
   gameOverMsg.innerText = "  ";
   if (highScore > 0) {
     topScore.innerText = "Top Score: " + highScore + "/" + roundLimit;
@@ -87,8 +84,7 @@ const beginGame = (event) => {
   beginNow.style.visibility = "hidden";
   nextQuestion.style.visibility = "hidden";
   anotherRound.style.visibility = "hidden";
-  //gameOverMsg.style.visibility = "hidden";
-  thatsAll.style.visibility = "hidden";
+  gameOverMsg.style.visibility = "hidden";
   answer_1.style.background = "lightcyan";
   answer_2.style.background = "lightcyan";
   answer_3.style.background = "lightcyan";
@@ -97,22 +93,18 @@ const beginGame = (event) => {
 };
 
 const event1 = (event) => {
-  console.log(" rightAnswer" + rightAnswer);
   processAnswer(1);
 };
 
 const event2 = (event) => {
-  console.log(" rightAnswer" + rightAnswer);
   processAnswer(2);
 };
 
 const event3 = (event) => {
-  console.log(" rightAnswer" + rightAnswer);
   processAnswer(3);
 };
 
 const event4 = (event) => {
-  console.log(" rightAnswer" + rightAnswer);
   processAnswer(4);
 };
 
@@ -124,7 +116,6 @@ const anotherRnd = (event) => {
   nextQuestion.style.visibility = "hidden";
   anotherRound.style.visibility = "hidden";
   gameOverMsg.style.visibility = "hidden";
-  thatsAll.style.visibility = "hidden";
   triviaIndex += 1;
   loadQuestion();
   answer_1.disabled = false;
@@ -160,15 +151,10 @@ function gameOver() {
   if (correctCount >= highScore) {
     if (correctCount === roundLimit) {
       topScoreMsg = "Awesome! Perfect score: ";
-      //      topScore.innerText =
-      //        "Awesome! Perfect score: " + correctCount + "/" + roundLimit;
     } else if (correctCount === highScore) {
       topScoreMsg = "Good job! You tied the Top Score: ";
-      //      topScore.innerText = "Good job! You tied the Top Score: " + correctCount + "/" + roundLimit;
     } else {
       topScoreMsg = "Good job! You set a new Top Score: ";
-      //      topScore.innerText =
-      //        "Good job! You set a new Top Score: " + correctCount + "/" + roundLimit;
     }
     topScore.innerText = topScoreMsg + correctCount + "/" + roundLimit;
     topScore.style.visibility = "visible";
@@ -176,14 +162,13 @@ function gameOver() {
   }
   if (roundLimit === questionLimit) {
     anotherRound.style.visibility = "hidden";
-    thatsAll.style.visibility = "visible";
-    thatsAll.innerText = "Game Over - Click 'Begin' to start a new game";
-    gameOverMsg.style.visibility = "hidden";
+    gameOverMsg.style.visibility = "visible";
+    gameOverMsg.innerText = "Game Over - Click 'Begin' to start a new game";
   } else {
     anotherRound.style.visibility = "visible";
     gameOverMsg.style.visibility = "visible";
+    gameOverMsg.innerText = "End of Round " + roundLimit / 10;
   }
-  gameOverMsg.innerText = "End of Round " + roundLimit / 10;
   beginNow.style.visibility = "visible";
   nextQuestion.style.visibility = "hidden";
 }
@@ -208,26 +193,17 @@ function processAnswer(aNum) {
   msgPrompt.innerText = "   ";
   if (aNum === rightAnswer) {
     let rightAnswerIndex = Math.floor(Math.random() * 4);
-    console.log("right answer Index " + rightAnswerIndex);
-
     gameMessage.innerText = rightAnswerMsg[rightAnswerIndex];
-
-    console.log(gameMessage);
     gameMessage.style.color = "black";
     correctCount += 1;
   } else {
     let wrongAnswerIndex = Math.floor(Math.random() * 4);
     gameMessage.innerText = wrongAnswerMsg[wrongAnswerIndex];
-
     gameMessage.style.color = "red";
   }
   questionCount += 1;
-  //console.log(displayScore);
   displayScore.innerText = "Score: " + correctCount + "/" + questionCount;
-  console.log(displayScore);
   nextQuestion.style.visibility = "visible";
-  console.log("answer num " + aNum);
-  // answer[rightAnswer].background = "lemonchiffon";
   if (rightAnswer === 1) {
     answer_1.style.background = "lemonchiffon";
   }
@@ -241,17 +217,12 @@ function processAnswer(aNum) {
     answer_4.style.background = "lemonchiffon";
   }
   if (questionCount === roundLimit) {
-    console.log("game over " + questionCount);
     gameOver();
   }
   answer_1.disabled = true;
   answer_2.disabled = true;
   answer_3.disabled = true;
   answer_4.disabled = true;
-
-  // increment the question counter
-  // if questionCount >= roundLimit (10, 20, 30, 40)
-  //  call the gameOver function
 }
 
 let beginNow = document.querySelector("#begin");

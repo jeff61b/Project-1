@@ -16,6 +16,7 @@ This project is a multiple choice trivia game.
 - The game is stored here: [Trivia Game](https://github.com/jeff61b/Project-1)
 
 **Functions**
+
 The functionality of the game was broken down into these individual JavaScript functions.
 
 - shuffle – shuffles the order of the trivia questions before each game.

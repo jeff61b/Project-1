@@ -145,15 +145,6 @@ header {
   margin: 5px 5px 5px 5px;
 }
 
-#thats-all-msg {
-  display: flex;
-  justify-content: center;
-  visibility: hidden;
-  font-size: 40px;
-  color: darkblue;
-  margin: 5px 5px 5px 5px;
-}
-
 #newRound {
   display: flex;
   flex-direction: column;

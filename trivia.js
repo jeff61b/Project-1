@@ -248,7 +248,7 @@ const triviaQuestions = [
     questionId: 24,
     category: "Basic Civics",
     question:
-      "Many rights apply to everyone within the United States. Which of these apply ONLY to US citizens?",
+      "Most rights apply to everyone in the United States. Which of these apply only to US citizens?",
     answer1: "The right to free speech",
     answer2: "The right to practice any or no religion",
     answer3: "The right to vote",
