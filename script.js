@@ -48,6 +48,7 @@ function shuffle(array) {
 
 // Load the next question into the screen
 function loadQuestion() {
+  gameMessage.style.color = "black";
   gameMessage.innerText = "(Click the correct answer)";
   questionIndex = triviaArray[triviaIndex];
 
