@@ -26,3 +26,5 @@ The functionality of the game was broken down into these individual JavaScript f
 - nxtQuestion – prepares for the next question when user hits the “Next Question” button.
 - gameOver – displays messages and options for when the user has completed a round of ten questions.
 - processAnswer – responds when user clicks any of the four “Answer” buttons.
+
+![](wireframe.png)
